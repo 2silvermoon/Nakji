@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>LoginForm html</title>
+</head>
+<body>
+<h1>로그인해랏!</h1>
+ 
+<!--  <c:url value="j_spring_security_check" var="loginUrl" /> -->
+<form th:action="@{/j_spring_security_check}" method="post">
+		<p th:if="${param.error != null }">
+            Login Error! <br />
+            ${error_message }
+        </p>
+        ID : <input type="text" name="j_username"> <br />
+        PW : <input type="password" name="j_password"> <br />
+        <input type="submit" value="LOGIN"> <br />
+</form>
+</body>
+</html>

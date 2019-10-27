@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>list html</title>
+</head>
+<body>
+ 
+<table border="1">
+    <tr>
+        <td>학번</td>
+        <td>등록여부</td>
+        <td>암호화</td>
+        <td>등록하기</td>
+        <td>등록삭제</td>
+    </tr>
+    
+    <tr th:each="dto: ${list}">
+            <td th:text="${dto.id}"></td>
+            <td th:text="${dto.enabled}"></td>
+            <td th:text="${dto.auth}"></td>
+            
+            <td th:if="${dto.enabled == 0}">
+            	<a th:href="@{register(id=${dto.id })}">등록하기</a>
+            </td>
+            <td th:unless="${dto.enabled == 0}">
+            	등록하기
+            </td>
+            
+            <td th:if="${dto.enabled == 0}">
+            	등록삭제
+            </td>
+            <td th:unless="${dto.enabled == 0}">
+            	<a th:href="@{deregister(id=${dto.id })}">등록삭제</a>
+            </td>
+     </tr>
+</table>
+</body>
+</html>
