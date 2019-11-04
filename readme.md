@@ -20,7 +20,7 @@
 <img src="https://user-images.githubusercontent.com/37291245/68148473-67dd5a00-ff7f-11e9-8026-c0121bcbf58c.PNG">
 </div>
 
-### 19.10.29 ###
+### 19.10.23 ###
 >
 <div>
 <img src="https://user-images.githubusercontent.com/37291245/68148525-7cb9ed80-ff7f-11e9-9c86-c1582aa7bf28.png">
