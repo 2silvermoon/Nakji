@@ -25,12 +25,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/css/**", "/js/**", "/img/**").permitAll()
                 .antMatchers("/member/**").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated();
+                .anyRequest().authenticated()
+                .anyRequest().permitAll();
         
         http.formLogin()
                 .loginPage("/loginForm")        // default : /login
                 .loginProcessingUrl("/j_spring_security_check")
-                //.failureUrl("/loginForm?error")        // default : /login?error
+                //.failureUrl("/login?error")        // default : /login?error
                 //.defaultSuccessUrl("/")
                 .failureHandler(authenticationFailureHandler)
                 .usernameParameter("j_username")// default : j_username
@@ -38,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .permitAll();
         
         http.logout()
-                .logoutUrl("/logout") // default
+        		.logoutUrl("/logout")
                 .logoutSuccessUrl("/")
                 .permitAll();
         
@@ -62,10 +63,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
             .dataSource(dataSource)
-            .usersByUsernameQuery("select id, auth, enabled"
-                                    + " from member where id = ?")
-            .authoritiesByUsernameQuery("select id, authority"
-                                    + " from member where id = ?")
+            .usersByUsernameQuery("select id, auth, enabled from member where id = ?")
+            .rolePrefix("ROLE_")
+            .authoritiesByUsernameQuery("select id, authority from member where id = ?")
             .passwordEncoder(new BCryptPasswordEncoder());
     }
     

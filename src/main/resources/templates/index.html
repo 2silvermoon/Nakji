@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>index</title>
+</head>
+<body>
+KFC 시작
+
+<div sec:authorize="isAuthenticated()">
+<a href="/check">유저 정보</a> <br />
+<a href="/list">DB 확인</a> <br />
+<a href="/logout">Log Out</a> <br />
+</div> <br />
+
+
+
+<div sec:authorize="!isAuthenticated()">
+<a href="/loginForm">Log in</a> <br />
+</div>
+
+<div sec:authorize="isAuthenticated()">
+ Log-In 됨
+</div>
+ 
+<div sec:authorize="!isAuthenticated()">
+ Log-In 안됨
+</div>
+
+</body>
+</html>

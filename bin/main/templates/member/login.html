@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"  
 		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
@@ -11,17 +10,17 @@
  
 <hr>
  
-<span sec:authorize="isAuthenticated()">
-<p> Log-In</p>
-</span>
+<div sec:authorize="isAuthenticated()">
+ Log-In
+</div>
  
-<span sec:authorize="!isAuthenticated()">
-<p> Log-Out</p>
-</span>
+<div sec:authorize="!isAuthenticated()">
+ Log-Out
+</div>
 
-USER ID : <span sec:authentication="name"></span> 
+USER ID : <span sec:authentication="name">user</span> <br />
+Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
  
-<!--<c:url value="/logout" var="logoutUrl" />
-<a href="/logout">Log Out</a> <br />-->
+<a href="/logout">Log Out</a> <br />
 </body>
 </html>

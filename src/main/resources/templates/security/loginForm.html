@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:th="http://www.thymeleaf.org"  
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>LoginForm html</title>
 </head>
 <body>
-<h1>로그인해랏!</h1>
+<h2>로그인해랏!</h2>
  
+<script type="text/javascript" sec:authorize="isAuthenticated()">
+        location.href = "/"
+</script>
+    
 <!--  <c:url value="j_spring_security_check" var="loginUrl" /> -->
 <form th:action="@{/j_spring_security_check}" method="post">
-		<p th:if="${param.error != null }">
-            Login Error! <br />
-            ${error_message }
-        </p>
-        ID : <input type="text" name="j_username"> <br />
-        PW : <input type="password" name="j_password"> <br />
+		<div th:if="${param.error}">
+	        	계정과 비밀번호 확인
+	    </div>
+        ID : <input type="text" name="j_username" autofocus="autofocus" placeholder="id"> <br />
+        PW : <input type="password" name="j_password" placeholder="pw"> <br />
         <input type="submit" value="LOGIN"> <br />
 </form>
 </body>
