@@ -25,9 +25,8 @@
 <br>
 
 ## 기술 부분 ##
->MySQL, Mybatis, html(Thymeleaf)
+>MySQL, Hibernate, Thymeleaf
 <br><br>
 
 >### 고려할 부분 ###
->Mybatis -> Hibernate <br>
 MySQL -> MariaDB(web DB)
