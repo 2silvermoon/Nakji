@@ -25,8 +25,7 @@
 <br>
 
 ## 기술 부분 ##
->MySQL, Hibernate, Thymeleaf
-<br><br>
+>MySQL, Hibernate, Thymeleaf<br>
 
 >### 고려할 부분 ###
 MySQL -> MariaDB(web DB)
