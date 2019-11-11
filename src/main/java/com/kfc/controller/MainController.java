@@ -8,36 +8,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kfc.db.IMemberDao;
 import com.kfc.db.Members;
+import com.kfc.repo.MemberRepository;
 
 @Controller
 public class MainController {
 	
 	@Autowired
-	private IMemberDao dao;
+	private MemberRepository repo;
 	
 	@RequestMapping("/")
     public String main() {
-		//System.out.println("index");
         return "index";
     }
 	
 	@RequestMapping("/check")
     public String check() {
-		//System.out.println("check");
         return "member/login";
     }
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
-		//System.out.println("list");
-		model.addAttribute("readTb", dao.listDao());
-		//System.out.println("listDao");
+		model.addAttribute("readTb", repo.findAll());
 		return "admin/list";
 	}
 	
     @RequestMapping("/loginForm")
     public String loginForm() {
-    	//System.out.println("loginForm");
+    	System.out.println("loginForm");
         return "security/loginForm";
     }
     
@@ -45,7 +42,8 @@ public class MainController {
     @ResponseBody
     public Members getRestMembers(Model model) {
     	Members members = new Members();
-    	members.addMembers(dao.listDao());
+    	members.addMembers(repo.findAll());
+    	System.out.println("members");
     	return members;
     }
     

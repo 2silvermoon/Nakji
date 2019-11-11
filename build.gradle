@@ -39,8 +39,8 @@ dependencies {
     implementation 'mysql:mysql-connector-java'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
     
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly ("org.projectlombok:lombok")
+    annotationProcessor ("org.projectlombok:lombok")
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'

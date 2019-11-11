@@ -10,15 +10,14 @@
 KFC 시작
 
 <div sec:authorize="isAuthenticated()">
-<a href="/check">유저 정보</a> <br />
-<a href="/list">DB 확인</a> <br />
-<a href="/logout">Log Out</a> <br />
+<a th:href="@{/check}">유저 정보</a> <br />
+<a th:href="@{/list}">DB 확인</a> <br />
+<a th:href="@{/logout}">Log Out</a> <br />
 </div> <br />
 
 
-
 <div sec:authorize="!isAuthenticated()">
-<a href="/loginForm">Log in</a> <br />
+<a th:href="@{/loginForm}">Log in</a> <br />
 </div>
 
 <div sec:authorize="isAuthenticated()">
