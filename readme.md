@@ -27,4 +27,4 @@
 >MySQL, Hibernate, Thymeleaf<br>
 
 ### 고려할 부분
-MySQL -> MariaDB(web DB)
+>MySQL -> MariaDB(web DB)
