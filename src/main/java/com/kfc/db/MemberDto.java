@@ -1,8 +1,6 @@
 package com.kfc.db;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,13 +12,14 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name="member")
+@Table(name="user")
 public class MemberDto {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	long id;
+	int userId;
+	String userPassword;
+	String userGender;
+	String userMajor;
+	String userEmail;
 	String auth;
-	int enabled;
-	String authority;
 }

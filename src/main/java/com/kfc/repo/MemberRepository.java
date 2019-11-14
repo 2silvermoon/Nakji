@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.kfc.db.MemberDto;
 
-public interface MemberRepository extends CrudRepository<MemberDto, Long>{
+public interface MemberRepository extends CrudRepository<MemberDto, Integer>{
 	List<MemberDto> findAll();
 }

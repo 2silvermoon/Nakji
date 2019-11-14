@@ -1,4 +1,4 @@
-package com.kfc.auth;
+package com.kfc.security;
 
 import javax.sql.DataSource;
 

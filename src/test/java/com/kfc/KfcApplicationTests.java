@@ -1,5 +1,7 @@
 package com.kfc;
 
+import java.util.Optional;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.kfc.db.MemberDto;
 import com.kfc.repo.MemberRepository;
+import com.kfc.service.RegisterService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -16,15 +19,27 @@ public class KfcApplicationTests {
 	@Autowired
 	private MemberRepository repo;
 	
+	@Autowired
+	private RegisterService service;
+	
 	@Test
 	public void testInsert() {
 		MemberDto member = new MemberDto();
-		member.setId(3333L);
-		member.setAuth("Test");
-		member.setEnabled(0);
-		member.setAuthority("ROLE_TEST");
+		member.setUserId(22222);
+		member.setUserPassword(service.getEncrypt("22222"));
+		member.setUserGender("male");
+		member.setUserMajor("com");
+		member.setUserEmail("rojae");
 		
 		repo.save(member);
+	}
+	
+	@Test
+	public void testAuth() {
+		Optional<MemberDto> member = repo.findById(22222);
+		member.get().setAuth(service.getEncrypt("22222"));
+		
+		repo.save(member.get());
 	}
 	
 	@Test
