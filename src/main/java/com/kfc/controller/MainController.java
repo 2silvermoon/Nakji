@@ -13,7 +13,10 @@ import com.kfc.db.MemberDto;
 import com.kfc.repo.MemberRepository;
 import com.kfc.service.RegisterService;
 
+import lombok.extern.java.Log;
+
 @RestController
+@Log
 public class MainController {
 	
 	@Autowired
@@ -22,11 +25,10 @@ public class MainController {
 	@Autowired
 	private RegisterService service;
 	
-	@RequestMapping(value="/SignIn")
+	@RequestMapping(value="/SignIn", method = RequestMethod.POST)
 	public Map<String, String> JsonSignIn(@RequestParam("userId") String id,
 											@RequestParam("userPassword") String pw) {
 		Map <String, String> map = new HashMap<String, String>();
-		System.out.println("로그인 실행");
 		try {
 			int sId = Integer.parseInt(id);
 			MemberDto member = repo.findById(sId).get();
@@ -38,12 +40,12 @@ public class MainController {
 				map.put("userGender", member.getUserGender());
 				map.put("userMajor", member.getUserMajor());
 				map.put("userEmail", member.getUserEmail());
-				map.put("userAuth", member.getAuth());
+				log.info("SignIn " + id);
 			} else
 				map.put("success", "false");
 		}catch (Exception e) {
-			System.out.println("뭔가 실패");
 			e.printStackTrace();
+			System.out.println("로그인 실패");
 			map.put("success", "false");
 		}
 		
@@ -51,20 +53,41 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/SignUp", method = RequestMethod.POST)
-	public Map<String, String> JsonSignUp() {
+	public Map<String, String> JsonSignUp(@RequestParam("userId") String id,
+											@RequestParam("userId") String pw,
+											@RequestParam("userId") String gd,
+											@RequestParam("userId") String mj,
+											@RequestParam("userId") String em) {
 		Map <String, String> map = new HashMap<String, String>();
+		MemberDto member = new MemberDto();
+		member.setUserId(Integer.parseInt(id));
+		member.setUserPassword(service.getEncrypt(pw));
+		member.setUserGender(gd);
+		member.setUserMajor(mj);
+		member.setUserEmail(em);
 		
+		repo.save(member);
+		map.put("success", "true");
+		log.info("SignUp " + id);
 		return map;
 	}
 	
-	@RequestMapping(value="/NdefExe")
+	@RequestMapping(value="/NdefExe", method = RequestMethod.POST)
 	public Map<String, String> JsonNFC(@RequestParam("userData") String text) {
 		Map <String, String> map = new HashMap<String, String>();
 		int id = Integer.parseInt(text);
 		try {
-			if(service.isAuth(id))
+			if(service.isAuth(id)) {
+				log.info("NFC success " + id);
 				map.put("success", "true");
+			}
+			else {
+				log.info("NFC fail " + id);
+				System.out.println("Auth 값이 있는지?");
+				map.put("success", "false");
+			}
 		}catch (Exception e) {
+			System.out.println("Auth 오류");
 			map.put("success", "false");
 		}
 		return map;

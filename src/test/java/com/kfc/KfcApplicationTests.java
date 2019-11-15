@@ -25,11 +25,11 @@ public class KfcApplicationTests {
 	@Test
 	public void testInsert() {
 		MemberDto member = new MemberDto();
-		member.setUserId(22222);
-		member.setUserPassword(service.getEncrypt("22222"));
-		member.setUserGender("male");
-		member.setUserMajor("com");
-		member.setUserEmail("rojae");
+		member.setUserId(201413318);
+		member.setUserPassword(service.getEncrypt("201413318"));
+		member.setUserGender("Female");
+		member.setUserMajor("HOS");
+		member.setUserEmail("강원도성애자");
 		
 		repo.save(member);
 	}
