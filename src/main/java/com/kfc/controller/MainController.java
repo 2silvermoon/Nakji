@@ -13,10 +13,7 @@ import com.kfc.db.MemberDto;
 import com.kfc.repo.MemberRepository;
 import com.kfc.service.RegisterService;
 
-import lombok.extern.java.Log;
-
 @RestController
-@Log
 public class MainController {
 	
 	@Autowired
@@ -32,20 +29,16 @@ public class MainController {
 		try {
 			int sId = Integer.parseInt(id);
 			MemberDto member = repo.findById(sId).get();
-			System.out.println("id 접속");
 			if (service.getEncrypt(pw).equals(member.getUserPassword())) {
-				System.out.println("Login Success " + id + " " + pw);
 				map.put("success", "true");
 				map.put("userId", id);
 				map.put("userGender", member.getUserGender());
 				map.put("userMajor", member.getUserMajor());
 				map.put("userEmail", member.getUserEmail());
-				log.info("SignIn " + id);
 			} else
 				map.put("success", "false");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("로그인 실패");
 			map.put("success", "false");
 		}
 		
@@ -68,7 +61,6 @@ public class MainController {
 		
 		repo.save(member);
 		map.put("success", "true");
-		log.info("SignUp " + id);
 		return map;
 	}
 	
@@ -78,16 +70,11 @@ public class MainController {
 		int id = Integer.parseInt(text);
 		try {
 			if(service.isAuth(id)) {
-				log.info("NFC success " + id);
 				map.put("success", "true");
-			}
-			else {
-				log.info("NFC fail " + id);
-				System.out.println("Auth 값이 있는지?");
+			} else {
 				map.put("success", "false");
 			}
 		}catch (Exception e) {
-			System.out.println("Auth 오류");
 			map.put("success", "false");
 		}
 		return map;

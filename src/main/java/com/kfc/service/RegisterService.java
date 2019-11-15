@@ -21,9 +21,8 @@ public class RegisterService {
 		String sId = String.valueOf(id);
 		String tempPw = member.get().getAuth();
 		try {
-			if (getEncrypt(sId).equals(tempPw)) {
+			if (getEncrypt(sId).equals(tempPw)) 
 				return true;
-			}
 			return false;
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -54,7 +53,6 @@ public class RegisterService {
             }
  
             return hexString.toString();
- 
         } catch(Exception ex){
             throw new RuntimeException(ex);
         }
