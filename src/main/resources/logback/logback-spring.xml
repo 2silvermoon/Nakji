@@ -34,8 +34,8 @@
     <logger name="org.apache.catalina" level="INFO" />
     <logger name="org.apache.commons" level="INFO" />
     <logger name="org.springframework.web" level="DEBUG"/>
-	<logger name="org.thymeleaf" level="DEBUG"/>
-	<logger name="org.hibernate.SQL" level="DEBUG"/>
+	<logger name="org.thymeleaf" level="INFO"/>
+	<logger name="org.hibernate.SQL" level="INFO"/>
      
     <!-- 모든 로그 출력 (파일/콘솔) -->
     <root level="INFO">

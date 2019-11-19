@@ -27,9 +27,9 @@ public class KfcApplicationTests {
 		MemberDto member = new MemberDto();
 		member.setUserId(201413318);
 		member.setUserPassword(service.getEncrypt("201413318"));
-		member.setUserGender("Female");
+		member.setUserGender("male");
 		member.setUserMajor("HOS");
-		member.setUserEmail("강원도성애자");
+		member.setUserEmail("");
 		
 		repo.save(member);
 	}
