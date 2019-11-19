@@ -36,5 +36,5 @@
 <br>
 
 >### 19.11.19
-![Github](C:\Users\Yukishou\Downloads\Server.png)
+![Github](https://user-images.githubusercontent.com/37291245/69150331-d98adb80-0b1b-11ea-9463-257a7700feb6.png)
 <br>
