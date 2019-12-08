@@ -24,7 +24,7 @@ public class MainController {
 	
 	@RequestMapping(value="/SignIn", method = RequestMethod.POST)
 	public Map<String, String> JsonSignIn(@RequestParam("userId") String id,
-											@RequestParam("userPassword") String pw) {
+						@RequestParam("userPassword") String pw) {
 		Map <String, String> map = new HashMap<String, String>();
 		try {
 			int sId = Integer.parseInt(id);
@@ -47,10 +47,10 @@ public class MainController {
 	
 	@RequestMapping(value="/SignUp", method = RequestMethod.POST)
 	public Map<String, String> JsonSignUp(@RequestParam("userId") String id,
-											@RequestParam("userId") String pw,
-											@RequestParam("userId") String gd,
-											@RequestParam("userId") String mj,
-											@RequestParam("userId") String em) {
+						@RequestParam("userPassword") String pw,
+						@RequestParam("userGender") String gd,
+						@RequestParam("userMajor") String mj,
+						@RequestParam("userEmail") String em) {
 		Map <String, String> map = new HashMap<String, String>();
 		MemberDto member = new MemberDto();
 		member.setUserId(Integer.parseInt(id));
