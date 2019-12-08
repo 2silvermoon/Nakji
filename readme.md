@@ -14,7 +14,7 @@ __강원대학교 학생 무인 인증시스템 구현__
 >안드로이드를 통해 들어온 데이터 검증 및 처리 <br>
 
 ## 기술 스택
->MariaDB, Hibernate, JPA<br>
+>Spring Boot, MariaDB, Hibernate, JPA<br>
 
 ## 결과
 >데이터 검증 및 처리에 대해 배울 수 있었고, REST 방식에 대해 알게 되었다.<br>
