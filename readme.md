@@ -19,6 +19,9 @@ __강원대학교 학생 무인 인증시스템 구현__
 ## 결과
 >데이터 검증 및 처리에 대해 배울 수 있었고, REST 방식에 대해 알게 되었다.<br>
 
+## Client Side
+>https://github.com/2silvermoon/Rojae
+
 ## 아쉬운 점
 > 도어락의 상태 변화 등 결과를 시각적으로 보여줄 수 없었다. <br>
 -> 단순히 True or False로만 출력되기 때문에<br>
@@ -26,18 +29,37 @@ __강원대학교 학생 무인 인증시스템 구현__
 > 학교 측과 협의가 불가능했다. <br>
 -> 교내 세콤 측과 연락을 했지만 관리자가 자주 방문하지 않았고 따라서 학생 테이블의 구조 등을 파악하기 어려웠다.<br>
 
-## 설계 중간 점검
+## 다이어그램
 
-![Github](https://user-images.githubusercontent.com/37291245/68148453-5f851f00-ff7f-11e9-8130-1c274e130f2a.PNG)
-
->### 19.09.27
-![Github](https://user-images.githubusercontent.com/37291245/68148473-67dd5a00-ff7f-11e9-8026-c0121bcbf58c.PNG)
+__Client Side__
+![diagram](https://user-images.githubusercontent.com/41769568/70390882-8c12d780-1a12-11ea-9379-86aaf70d6717.png)
 <br>
 
->### 19.10.23
-![Github](https://user-images.githubusercontent.com/37291245/68148525-7cb9ed80-ff7f-11e9-9c86-c1582aa7bf28.png)
-<br>
-
->### 19.11.19
+__Server Side__
 ![Github](https://user-images.githubusercontent.com/37291245/69150331-d98adb80-0b1b-11ea-9463-257a7700feb6.png)
-<br>
+
+## 실행화면
+
+__로그인__
+
+<img src="https://user-images.githubusercontent.com/41769568/70390928-f3308c00-1a12-11ea-96bb-adfcc4108e25.png" width="230" height="400"></img>
+<img src="https://user-images.githubusercontent.com/41769568/70390929-f461b900-1a12-11ea-8f8b-b9f34fea0b39.png" width="230" height="400"></img>
+
+----------------------------------------------------------------------
+
+__회원가입__
+
+<img src="https://user-images.githubusercontent.com/41769568/70390953-28d57500-1a13-11ea-9fd4-d93f0bce11d7.png" width="230" height="400"></img>
+----------------------------------------------------------------------
+
+
+__로딩화면__
+
+<img src="https://user-images.githubusercontent.com/41769568/70390939-11968780-1a13-11ea-9176-239e89b1d06c.png" width="230" height="400"></img>
+----------------------------------------------------------------------
+
+
+__메인화면 및 NFC통신__
+
+<img src="https://user-images.githubusercontent.com/41769568/70390948-1f4c0d00-1a13-11ea-97e4-4a1b3af27ddc.png" width="230" height="400"></img>
+<img src="https://user-images.githubusercontent.com/41769568/70390949-207d3a00-1a13-11ea-8721-3bf4c8c04fa2.png" width="230" height="400"></img>
