@@ -33,9 +33,9 @@ __강원대학교 학생 무인 인증시스템 구현__
 
 __Client Side__
 ![diagram](https://user-images.githubusercontent.com/41769568/70390882-8c12d780-1a12-11ea-9379-86aaf70d6717.png)
-<br>
 
-__Server Side__
+
+__Server Side__ <br>
 ![Github](https://user-images.githubusercontent.com/37291245/69150331-d98adb80-0b1b-11ea-9463-257a7700feb6.png)
 
 ## 실행화면
